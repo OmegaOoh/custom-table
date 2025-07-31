@@ -20,7 +20,7 @@ Before you begin, ensure you have the following installed:
 - Python 3.x: Download and install from python.org.
 - Python dependencies
     ```sh
-        pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 ### Running the Application
