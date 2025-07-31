@@ -181,7 +181,7 @@ def generate_schedule_html(classes):
         html += generate_row(day, classes)
     html += '''</tbody></table>
     </div>
-    <div class="text-right text-xs text-gray-400 p-4 mt-4 select-none">created by Omega & ChatGPT</div>
+    <div class="text-right text-xs text-gray-400 p-4 mt-4 select-none">created by Sirapob P. & ChatGPT</div>
 </body>
 </html>'''
     return html

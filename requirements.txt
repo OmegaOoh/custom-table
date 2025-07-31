@@ -1,0 +1,1 @@
+beutifulsoup4 >= 4.9
