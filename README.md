@@ -28,18 +28,20 @@ Before you begin, ensure you have the following installed:
 
 #### Full Script
 Input HTML file should be element from myku site as shown in the image below.
-note: example.source.html is provided as html sample
+
+**note: example.source.html is provided as html sample**
 <img width="2286" height="856" alt="element show" src="https://github.com/user-attachments/assets/e8e4cc86-8509-4d70-838e-5da6affb4398" />
 
 ```
 python main.py <path_to_your_input_html_file> <path_for_output_schedule_html_file>
 ```
-The result should html file should render as shown below
+The result html file should render as shown below
 <img width="2507" height="1291" alt="showcase" src="https://github.com/user-attachments/assets/90f3fa8d-ab5a-4f3d-8202-287939c7a5d9" />
 
 #### Gen Script
 You can also use JSON file as data when full script doesn't met your needs
-note: example.data.json is provided as data sample
+
+**note: example.data.json is provided as da ata sample**
 ```
 python gen_schedule.py <data.json_path> 
 ```
