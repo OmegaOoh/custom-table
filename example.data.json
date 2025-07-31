@@ -1,0 +1,72 @@
+[
+  {
+    "day": "TUE",
+    "start": "9:00",
+    "duration": "03:00",
+    "code": "01219366-65",
+    "title": "Knowledge Engineering",
+    "room": "E11-S603",
+    "type": "Lecture",
+    "section": "450"
+  },
+  {
+    "day": "TUE",
+    "start": "13:00",
+    "duration": "03:00",
+    "code": "01204461-65",
+    "title": "Artificial Intelligence",
+    "room": "E11-S601",
+    "type": "Lecture",
+    "section": "450"
+  },
+  {
+    "day": "WED",
+    "start": "9:00",
+    "duration": "03:00",
+    "code": "01219346-65",
+    "title": "Collaborative Software Process and Project Management",
+    "room": "E11-S604",
+    "type": "Laboratory",
+    "section": "450"
+  },
+  {
+    "day": "THU",
+    "start": "13:00",
+    "duration": "02:00",
+    "code": "01219346-65",
+    "title": "Collaborative Software Process and Project Management",
+    "room": "E11-S604",
+    "type": "Lecture",
+    "section": "450"
+  },
+  {
+    "day": "THU",
+    "start": "16:00",
+    "duration": "03:00",
+    "code": "01355203-64",
+    "title": "English Language Structure",
+    "room": "LH 4-804",
+    "type": "Lecture",
+    "section": "450"
+  },
+  {
+    "day": "FRI",
+    "start": "9:00",
+    "duration": "03:00",
+    "code": "01219325-65",
+    "title": "Software Development Security",
+    "room": "E11-S603",
+    "type": "Lecture",
+    "section": "450"
+  },
+  {
+    "day": "FRI",
+    "start": "13:00",
+    "duration": "03:00",
+    "code": "01219313-65",
+    "title": "Communication Skills for Software and Knowledge Engineers",
+    "room": "E11-S603",
+    "type": "Lecture",
+    "section": "450"
+  }
+]
