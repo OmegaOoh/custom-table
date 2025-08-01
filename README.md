@@ -43,12 +43,8 @@ You can also use JSON file as data when full script doesn't met your needs
 
 **note: example.data.json is provided as da ata sample**
 ```
-python gen_schedule.py <data.json_path> 
+python gen_schedule.py <data.json_path> <output.html_path> 
 ```
-The result will be printed into console 
-To save the result into file you can use `>` or `>>` to save into file
-- `>` will overwrite the content
-- `>>` will append to the file
 
 Example:
 ```

@@ -50,16 +50,12 @@ def run_pipeline(html_input_path, html_output_path):
         print(f"Error: Temporary JSON file '{temp_json_path}' was not created or is empty by parser.py.")
         return
 
-    # Step 2: Run gen_schedule.py to generate HTML from JSON
     print(f"Running gen_schedule.py to generate HTML from '{temp_json_path}'...")
     try:
         gen_schedule_process = subprocess.run(
-            [sys.executable, "gen_schedule.py", temp_json_path],
-            capture_output=True,
-            text=True,
+            [sys.executable, "gen_schedule.py", temp_json_path, html_output_path],
             check=True # Raise an exception for non-zero exit codes
         )
-        generated_html = gen_schedule_process.stdout
         if gen_schedule_process.stderr:
             print("gen_schedule.py errors (if any):")
             print(gen_schedule_process.stderr)
@@ -76,19 +72,10 @@ def run_pipeline(html_input_path, html_output_path):
         print(f"An unexpected error occurred during HTML generation: {e}")
         return
 
-    # Step 3: Save the generated HTML to the specified output file
-    print(f"Saving generated HTML to '{html_output_path}'...")
-    try:
-        with open(html_output_path, 'w', encoding='utf-8') as f:
-            f.write(generated_html)
-        print(f"Successfully generated schedule HTML to '{html_output_path}'")
-    except Exception as e:
-        print(f"Error saving HTML to '{html_output_path}': {e}")
-    finally:
-        # Clean up the temporary JSON file
-        if os.path.exists(temp_json_path):
-            os.remove(temp_json_path)
-            print(f"Cleaned up temporary file: {temp_json_path}")
+    # Clean up the temporary JSON file
+    if os.path.exists(temp_json_path):
+        os.remove(temp_json_path)
+        print(f"Cleaned up temporary file: {temp_json_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

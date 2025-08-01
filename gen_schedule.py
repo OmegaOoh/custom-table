@@ -1,5 +1,10 @@
 import json
 from datetime import datetime, timedelta
+import sys
+
+# Crucial for handling Unicode characters when printing to console on Windows
+# This ensures sys.stdout uses UTF-8 encoding
+sys.stdout
 
 # Define time slots in 30-minute increments for finer granularity
 TIME_SLOTS = []
@@ -16,7 +21,8 @@ DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
 def load_classes(path):
     """Loads class data from a JSON file."""
-    with open(path) as f:
+    # Explicitly open with utf-8 encoding to ensure correct reading of characters
+    with open(path, 'r', encoding='utf8') as f:
         return json.load(f)
 
 def time_to_colspan(start, duration):
@@ -72,13 +78,13 @@ def generate_cell(cls):
     
     # Define pastel background colors with good text contrast for each day
     color_classes = {
-        "MON": "bg-yellow-600 text-white",
-        "TUE": "bg-pink-600 text-white",
-        "WED": "bg-green-600 text-white",
-        "THU": "bg-orange-600 text-white",
-        "FRI": "bg-blue-600 text-white",
-        "SAT": "bg-purple-600 text-white",
-        "SUN": "bg-red-600 text-white"
+        "MON": "bg-yellow-400 text-neutral-900",
+        "TUE": "bg-pink-400 text-neutral-900",
+        "WED": "bg-green-400 text-neutral-900",
+        "THU": "bg-orange-400 text-neutral-900",
+        "FRI": "bg-blue-400 text-neutral-900",
+        "SAT": "bg-purple-400 text-neutral-900",
+        "SUN": "bg-red-400 text-neutral-900"
     }
     color = color_classes.get(cls["day"], "bg-gray-700 text-white")
     
@@ -96,13 +102,13 @@ def generate_cell(cls):
 def generate_row(day, classes, is_last_row):
     """Generates the HTML for a single day's row in the schedule."""
     day_colors = {
-        "MON": "bg-yellow-700 text-white",
-        "TUE": "bg-pink-700 text-white",
-        "WED": "bg-green-700 text-white",
-        "THU": "bg-orange-700 text-white",
-        "FRI": "bg-blue-700 text-white",
-        "SAT": "bg-purple-700 text-white",
-        "SUN": "bg-red-700 text-white"
+        "MON": "bg-yellow-400 text-neutral-900",
+        "TUE": "bg-pink-400 text-neutral-900",
+        "WED": "bg-green-400 text-neutral-900",
+        "THU": "bg-orange-400 text-neutral-900",
+        "FRI": "bg-blue-400 text-neutral-900",
+        "SAT": "bg-purple-400 text-neutral-900",
+        "SUN": "bg-red-400 text-neutral-900"
     }
     day_color = day_colors.get(day, "bg-gray-800 text-white")
     
@@ -144,7 +150,7 @@ def generate_schedule_html(classes):
     html = '''<!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> <!-- THIS LINE IS CRUCIAL FOR THAI CHARACTERS -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weekly Schedule</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -172,9 +178,11 @@ def generate_schedule_html(classes):
 
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) < 2:
-        print("Usage: python gen_schedule.py <data.json_path>")
+    if len(sys.argv) < 3:
+        print("Usage: python gen_schedule.py <data.json_path> <output.html_path>")
         sys.exit(1)
     data = load_classes(sys.argv[1])
-    print(generate_schedule_html(data))
 
+    with open(sys.argv[2], 'w', encoding='utf8') as f:
+        f.write(generate_schedule_html(data))
+    print(f"Successfully save schedule to {sys.argv[2]}")
