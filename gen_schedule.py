@@ -107,7 +107,7 @@ def generate_row(day, classes, is_last_row):
     day_color = day_colors.get(day, "bg-gray-800 text-white")
     
     # Removed border-b class from here to remove horizontal borders on body rows
-    row = f'<tr class="h-20">'
+    row = f'<tr class="h-25">'
     
     # Sticky day column
     row += f'<td class="w-48 sticky left-0 z-20 px-4 py-3 font-bold text-center {day_color} whitespace-nowrap{' border-b border-gray-800' if not is_last_row else ''}"> {day} </td>'
@@ -151,9 +151,6 @@ def generate_schedule_html(classes):
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-[#0b0f1a] text-white min-h-screen flex flex-col items-center justify-center py-8 font-sans">
-    <h1 class="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-        My Weekly Schedule
-    </h1>
     <div class="overflow-x-auto w-[95vw] h-[95vh] rounded-xl shadow-2xl bg-[#111622] border border-gray-800">
         <table class="border-separate border-spacing-0 size-full text-sm">
             <thead>
