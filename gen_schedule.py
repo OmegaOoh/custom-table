@@ -86,7 +86,7 @@ def generate_cell(cls):
         "SAT": "bg-purple-400 text-neutral-900",
         "SUN": "bg-red-400 text-neutral-900"
     }
-    color = color_classes.get(cls["day"], "bg-gray-700 text-white")
+    color = color_classes.get(cls["day"], "bg-gray-700 text-neutral-900")
     
     html = f'''
         <td colspan="{span}" class="p-3 align-top {color} rounded-lg overflow-hidden">
@@ -110,7 +110,7 @@ def generate_row(day, classes, is_last_row):
         "SAT": "bg-purple-400 text-neutral-900",
         "SUN": "bg-red-400 text-neutral-900"
     }
-    day_color = day_colors.get(day, "bg-gray-800 text-white")
+    day_color = day_colors.get(day, "bg-gray-800 text-neutral-900")
     
     # Removed border-b class from here to remove horizontal borders on body rows
     row = f'<tr class="h-25">'
@@ -157,7 +157,7 @@ def generate_schedule_html(classes):
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-[#0b0f1a] text-white min-h-screen flex flex-col items-center justify-center py-8 font-sans">
-    <div class="overflow-x-auto w-[95vw] h-[95vh] rounded-xl shadow-2xl bg-[#111622] border border-gray-800">
+    <div class="overflow-x-auto w-[95vw] h-[96vh] rounded-xl shadow-2xl bg-[#111622] border border-gray-800">
         <table class="border-separate border-spacing-0 size-full text-sm">
             <thead>
                 <tr class="bg-[#111622] sticky top-0 z-20 border-b border-gray-800">
