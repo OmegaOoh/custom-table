@@ -78,18 +78,18 @@ def generate_cell(cls):
     
     # Define pastel background colors with good text contrast for each day
     color_classes = {
-        "MON": "bg-yellow-400 text-neutral-900",
-        "TUE": "bg-pink-400 text-neutral-900",
-        "WED": "bg-green-400 text-neutral-900",
-        "THU": "bg-orange-400 text-neutral-900",
-        "FRI": "bg-blue-400 text-neutral-900",
-        "SAT": "bg-purple-400 text-neutral-900",
-        "SUN": "bg-red-400 text-neutral-900"
+        "MON": "bg-yellow-400",
+        "TUE": "bg-pink-400",
+        "WED": "bg-green-400",
+        "THU": "bg-orange-400",
+        "FRI": "bg-blue-400",
+        "SAT": "bg-purple-400",
+        "SUN": "bg-red-400"
     }
     color = color_classes.get(cls["day"], "bg-gray-700 text-neutral-900")
     
     html = f'''
-        <td colspan="{span}" class="p-3 align-top {color} rounded-lg overflow-hidden">
+        <td colspan="{span}" class="p-3 align-top {color} text-neutral-900 rounded-lg overflow-hidden">
             <div class="text-sm leading-tight">
                 <div class="mb-1 font-semibold">[{cls['start']}-{compute_end(cls['start'], cls['duration'])}]</div>
                 <div class="font-bold">{cls['code']}</div>
@@ -102,21 +102,21 @@ def generate_cell(cls):
 def generate_row(day, classes, is_last_row):
     """Generates the HTML for a single day's row in the schedule."""
     day_colors = {
-        "MON": "bg-yellow-400 text-neutral-900",
-        "TUE": "bg-pink-400 text-neutral-900",
-        "WED": "bg-green-400 text-neutral-900",
-        "THU": "bg-orange-400 text-neutral-900",
-        "FRI": "bg-blue-400 text-neutral-900",
-        "SAT": "bg-purple-400 text-neutral-900",
-        "SUN": "bg-red-400 text-neutral-900"
+        "MON": "bg-yellow-400",
+        "TUE": "bg-pink-400",
+        "WED": "bg-green-400",
+        "THU": "bg-orange-400",
+        "FRI": "bg-blue-400",
+        "SAT": "bg-purple-400",
+        "SUN": "bg-red-400"
     }
-    day_color = day_colors.get(day, "bg-gray-800 text-neutral-900")
+    day_color = day_colors.get(day, "bg-gray-800 text-neutral-900 ")
     
     # Removed border-b class from here to remove horizontal borders on body rows
     row = f'<tr class="h-25">'
     
     # Sticky day column
-    row += f'<td class="w-48 sticky left-0 z-20 px-4 py-3 font-bold text-center {day_color} whitespace-nowrap{' border-b border-gray-800' if not is_last_row else ''}"> {day} </td>'
+    row += f'<td class="w-48 sticky left-0 z-20 px-4 py-3 font-bold text-center text-neutral-900 border-r border-gray-800 {day_color} whitespace-nowrap{' border-b border-gray-800' if not is_last_row else ''}"> {day} </td>'
     
     slot_ptr = 0 # Pointer to the current 30-minute slot index
     
